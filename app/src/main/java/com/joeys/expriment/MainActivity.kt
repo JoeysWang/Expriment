@@ -5,6 +5,9 @@ import android.widget.EditText
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.TextView
+import com.joeys.analytics.Analytics
+import com.joeys.analytics.AnalyticsSettings
+import com.joeys.expriment.analytic.DemoAnalyticDispatcher
 
 class MainActivity : AppCompatActivity() {
 
@@ -35,6 +38,8 @@ class MainActivity : AppCompatActivity() {
         textMessage = findViewById(R.id.message)
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
 
+
+        Analytics(AnalyticsSettings(), DemoAnalyticDispatcher(true))
 
 
     }
