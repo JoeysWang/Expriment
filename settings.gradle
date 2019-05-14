@@ -1,1 +1,1 @@
-include ':app', ':analytics'
+include ':app', ':analytics', ':kanno', ':codegen', ':rxmodelstore'

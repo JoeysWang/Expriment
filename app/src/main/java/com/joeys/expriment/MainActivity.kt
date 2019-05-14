@@ -8,6 +8,9 @@ import android.widget.TextView
 import com.joeys.analytics.Analytics
 import com.joeys.analytics.AnalyticsSettings
 import com.joeys.expriment.analytic.DemoAnalyticDispatcher
+import com.joeys.rxmodelstore.ModelStore
+import com.joeys.rxmodelstore.RxModelStore
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -38,6 +41,11 @@ class MainActivity : AppCompatActivity() {
         textMessage = findViewById(R.id.message)
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
 
+
+        val modelState = RxModelStore(UserEntity("joeys", 1))
+        val d = modelState.modelState()
+                .subscribe {
+                }
 
         Analytics(AnalyticsSettings(), DemoAnalyticDispatcher(true))
 

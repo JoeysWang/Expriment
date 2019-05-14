@@ -47,4 +47,5 @@ dependencies {
 
 
     implementation project(':analytics')
+    implementation project(':rxmodelstore')
 }
