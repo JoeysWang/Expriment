@@ -1,9 +1,12 @@
 package com.joeys.expriment
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.TextView
+import androidx.lifecycle.ViewModelProviders
 import com.joeys.analytics.Analytics
 import com.joeys.analytics.AnalyticsSettings
 import com.joeys.expriment.analytic.DemoAnalyticDispatcher
@@ -36,7 +39,6 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -46,26 +48,20 @@ class MainActivity : AppCompatActivity() {
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
 
 
-
         val modelState = RxModelStore(UserEntity("joeys", 1))
         val d = modelState.modelState()
                 .subscribe {
 
                 }
 
-        Analytics(AnalyticsSettings(), DemoAnalyticDispatcher(true))
 
-
-        val connectable = Observable.just("a")
-                .publish()
-                .refCount()
-        val dispose = connectable.replay(1)
-                .subscribe {
-
+        findViewById<Button>(R.id.btn_to_emotion)
+                .setOnClickListener {
+                    startActivity(Intent(this, MotionLayoutActivity::class.java))
                 }
 
-
-//        connectable.connect()
+        val mainViewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
+        mainViewModel.getAllData()
 
 
     }
