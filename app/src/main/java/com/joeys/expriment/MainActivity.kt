@@ -10,10 +10,13 @@ import androidx.lifecycle.ViewModelProviders
 import com.joeys.analytics.Analytics
 import com.joeys.analytics.AnalyticsSettings
 import com.joeys.expriment.analytic.DemoAnalyticDispatcher
+import com.joeys.expriment.utils.log
 import com.joeys.rxmodelstore.RxModelStore
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import java.util.concurrent.atomic.AtomicBoolean
 
@@ -48,11 +51,11 @@ class MainActivity : AppCompatActivity() {
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
 
 
-        val modelState = RxModelStore(UserEntity("joeys", 1))
-        val d = modelState.modelState()
-                .subscribe {
-
-                }
+//        val modelState = RxModelStore(UserEntity("joeys", 1))
+//        val d = modelState.modelState()
+//                .subscribe {
+//
+//                }
 
 
         findViewById<Button>(R.id.btn_to_emotion)
@@ -60,9 +63,30 @@ class MainActivity : AppCompatActivity() {
                     startActivity(Intent(this, MotionLayoutActivity::class.java))
                 }
 
-        val mainViewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
-        mainViewModel.getAllData()
+//        val mainViewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
+//        mainViewModel.getAllData()
 
+
+        initCoroutine()
+
+    }
+
+    private fun initCoroutine() {
+      val result=  (1..10).map {
+            it
+        }.sumBy {
+            it
+        }
+
+        "Start $result".log()
+
+        GlobalScope.launch {
+            delay(1000)
+            "Hello".log()
+        }
+
+//        Thread.sleep(2000) // 等待 2 秒钟
+        "Stop".log()
 
     }
 
