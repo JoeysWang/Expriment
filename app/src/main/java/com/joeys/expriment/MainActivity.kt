@@ -1,8 +1,10 @@
 package com.joeys.expriment
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Adapter
 import android.widget.EditText
+import android.widget.Button
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.TextView
@@ -15,6 +17,11 @@ import com.joeys.expriment.fragments.MainFragment
 import com.joeys.expriment.fragments.SecondFragment
 import com.joeys.router.annotation.Builder
 import com.joeys.router.annotation.Required
+import androidx.lifecycle.ViewModelProviders
+import io.reactivex.Observable
+import io.reactivex.subjects.PublishSubject
+
+import java.util.concurrent.atomic.AtomicBoolean
 
 @Builder
 class MainActivity : AppCompatActivity() {
@@ -44,8 +51,6 @@ class MainActivity : AppCompatActivity() {
     var userage: Int = 0
 
 
-
-
     private lateinit var mViewpager: ViewPager
 
     private lateinit var adapter: Adapter
@@ -56,29 +61,9 @@ class MainActivity : AppCompatActivity() {
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
-        mViewpager = findViewById(R.id.viewpager)
-
-        adapter = Adapter(
-            supportFragmentManager,
-            listOf(MainFragment(), SecondFragment())
-        )
-
-        mViewpager.adapter = adapter
 
 
     }
 
 
-    class Adapter(fragmentManager: FragmentManager, val fragments: List<Fragment>) :
-        FragmentPagerAdapter(fragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
-
-        override fun getItem(position: Int): Fragment {
-            return fragments[position]
-        }
-
-        override fun getCount(): Int {
-            return fragments.size
-        }
-
-    }
 }
