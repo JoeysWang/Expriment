@@ -4,7 +4,7 @@ import com.sun.org.apache.xpath.internal.operations.Bool
 import java.io.Serializable
 @Target(AnnotationTarget.FIELD)
 
-@Retention(AnnotationRetention.BINARY)
+@Retention(AnnotationRetention.SOURCE)
 annotation class Optional
     (
     val stringValue: String = "",

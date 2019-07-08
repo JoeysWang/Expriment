@@ -15,7 +15,7 @@ android {
 
         javaCompileOptions{
             annotationProcessorOptions{
-                includeCompileClasspath = true
+                includeCompileClasspath   false
             }
         }
     }
@@ -73,7 +73,7 @@ dependencies {
 
 //    implementation project(':analytics')
     implementation project(':rxmodelstore')
-    compileOnly project(':routerAnnotation')
+    implementation project(':routerAnnotation')
     implementation project(':routerruntime')
     kapt project(':routerCompiler')
 }

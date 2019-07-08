@@ -41,19 +41,20 @@ class StartMethod(private val activityClass: ActivityClass,
                 INTENT.java, INTENT.java, activityClass.typeElement)
         fields.forEach { field ->
             val name= field.name
+
             methodBuilder
                     .addParameter(field.asJavaTypeName(), name)
                     .addStatement("intent.putExtra(\$S,\$L)",name,name)
-
         }
 
         if (isStaticMethod)
             methodBuilder.addModifiers(Modifier.STATIC)
         else
             methodBuilder.addStatement("fillIntent(intent)")
-        methodBuilder.addStatement("\$T.INSTANCE.startActivity(contest,intent)",ACTIVITY_BUILDER.java)
-//        typebuilder.addMethod(me)
 
+
+        methodBuilder.addStatement("\$T.INSTANCE.startActivity(context,intent)",ACTIVITY_BUILDER.java)
+        typebuilder.addMethod(methodBuilder.build())
 
     }
 }

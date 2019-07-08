@@ -19,6 +19,7 @@ import com.joeys.router.annotation.Builder
 import com.joeys.router.annotation.Required
 import androidx.lifecycle.ViewModelProviders
 import com.joeys.expriment.utils.log
+import com.joeys.router.annotation.Optional
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
 import kotlinx.coroutines.GlobalScope
@@ -52,6 +53,9 @@ class MainActivity : AppCompatActivity() {
     @Required
     var userAge: Int = 0
 
+    @Optional
+    var isChildern: Boolean = false
+
 
     private lateinit var mViewpager: ViewPager
 
@@ -70,7 +74,6 @@ class MainActivity : AppCompatActivity() {
                 .setOnClickListener {
 
                 }
-
 
 
     }
