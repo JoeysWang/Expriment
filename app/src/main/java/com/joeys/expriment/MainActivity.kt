@@ -7,11 +7,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProviders
-import com.joeys.analytics.Analytics
-import com.joeys.analytics.AnalyticsSettings
+import com.alibaba.android.arouter.launcher.ARouter
 import com.joeys.expriment.analytic.DemoAnalyticDispatcher
 import com.joeys.expriment.utils.log
-import com.joeys.rxmodelstore.RxModelStore
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
 import kotlinx.coroutines.GlobalScope
@@ -25,6 +23,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var textMessage: TextView
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
+
             R.id.navigation_home -> {
                 textMessage.setText(R.string.title_home)
                 return@OnNavigationItemSelectedListener true
@@ -51,23 +50,16 @@ class MainActivity : AppCompatActivity() {
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
 
 
-//        val modelState = RxModelStore(UserEntity("joeys", 1))
-//        val d = modelState.modelState()
-//                .subscribe {
-//
-//                }
-
 
         findViewById<Button>(R.id.btn_to_emotion)
                 .setOnClickListener {
-                    startActivity(Intent(this, MotionLayoutActivity::class.java))
+
+                    ARouter.getInstance()
+                            .build("/app/second")
+                            .navigation()
                 }
 
-//        val mainViewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
-//        mainViewModel.getAllData()
 
-
-        initCoroutine()
 
     }
 
