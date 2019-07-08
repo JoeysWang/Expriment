@@ -24,58 +24,63 @@ class BuilderProcessor : AbstractProcessor() {
     }
 
     private val supportAnnotations = setOf(
-        Optional::class.java,
-        Required::class.java,
-        Builder::class.java
+            Optional::class.java,
+            Required::class.java,
+            Builder::class.java
     )
 
     override fun process(ano: MutableSet<out TypeElement>?, env: RoundEnvironment): Boolean {
         val activityClasses = hashMapOf<Element, ActivityClass>()
         env.getElementsAnnotatedWith(Builder::class.java)
-            .filter { element ->
-                element.kind.isClass
-            }
-            .forEach { element ->
-                try {
-                    if (element.asType().isSubTypeOf("android.app.Activity")) {
-                        activityClasses[element] = ActivityClass(element as TypeElement)
-                    } else
-                        Logger.error(element, "不支持的typeElement ${element.simpleName}")
+                .filter { element ->
+                    element.kind.isClass
+                }
+                .forEach { element ->
+                    try {
+                        if (element.asType().isSubTypeOf("android.app.Activity")) {
+                            activityClasses[element] = ActivityClass(element as TypeElement)
+                        } else
+                            Logger.error(element, "不支持的typeElement ${element.simpleName}")
 
 
-                } catch (e: Exception) {
-                    Logger.logParsingError(element, Builder::class.java, e)
+                    } catch (e: Exception) {
+                        Logger.logParsingError(element, Builder::class.java, e)
+                    }
+
                 }
 
-            }
-
         env.getElementsAnnotatedWith(Required::class.java)
-            .filter { it.kind.isField }
-            .forEach { element ->
-                activityClasses[element.enclosingElement]?.let {
-                    it.fileds.add(Field(element as Symbol.VarSymbol))
-                } ?: Logger.error(element, "属性 $element 所在的Activity未被 ${Builder::class.java.name} 标注")
+                .filter { it.kind.isField }
+                .forEach { element ->
+                    activityClasses[element.enclosingElement]?.let {
+                        it.fileds.add(Field(element as Symbol.VarSymbol))
+                    }
+                            ?: Logger.error(element, "属性 $element 所在的Activity未被 ${Builder::class.java.name} 标注")
 
 
-            }
+                }
         env.getElementsAnnotatedWith(Optional::class.java)
-            .filter { it.kind.isField }
-            .forEach { element ->
-                activityClasses[element.enclosingElement]?.let {
-                    it.fileds.add(OptionalField(element as Symbol.VarSymbol))
-                } ?: Logger.error(element, "属性 $element 所在的Activity未被 ${Builder::class.java.name} 标注")
-            }
+                .filter { it.kind.isField }
+                .forEach { element ->
+                    activityClasses[element.enclosingElement]?.let {
+                        it.fileds.add(OptionalField(element as Symbol.VarSymbol))
+                    }
+                            ?: Logger.error(element, "属性 $element 所在的Activity未被 ${Builder::class.java.name} 标注")
+                }
 
         Logger.warn(activityClasses.toString())
-
+        activityClasses.forEach { element, activityClass ->
+            val classBuilder = ActivityClassBuilder(activityClass)
+            classBuilder.build(AptContext.filer)
+        }
         return true
     }
 
     override fun getSupportedAnnotationTypes(): MutableSet<String> {
         return supportAnnotations.mapTo(
-            hashSetOf(), {
-                it.canonicalName
-            }
+                hashSetOf(), {
+            it.canonicalName
+        }
         )
     }
 

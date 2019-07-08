@@ -18,8 +18,6 @@ import com.joeys.expriment.fragments.SecondFragment
 import com.joeys.router.annotation.Builder
 import com.joeys.router.annotation.Required
 import androidx.lifecycle.ViewModelProviders
-import com.alibaba.android.arouter.launcher.ARouter
-import com.joeys.expriment.analytic.DemoAnalyticDispatcher
 import com.joeys.expriment.utils.log
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
@@ -49,10 +47,10 @@ class MainActivity : AppCompatActivity() {
 
 
     @Required
-    lateinit var username: String
+    lateinit var userName: String
 
     @Required
-    var userage: Int = 0
+    var userAge: Int = 0
 
 
     private lateinit var mViewpager: ViewPager
@@ -71,33 +69,12 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btn_to_emotion)
                 .setOnClickListener {
 
-                    ARouter.getInstance()
-                            .build("/app/second")
-                            .navigation()
                 }
 
 
 
     }
 
-    private fun initCoroutine() {
-      val result=  (1..10).map {
-            it
-        }.sumBy {
-            it
-        }
-
-        "Start $result".log()
-
-        GlobalScope.launch {
-            delay(1000)
-            "Hello".log()
-        }
-
-//        Thread.sleep(2000) // 等待 2 秒钟
-        "Stop".log()
-
-    }
 
     class RequstTask<T> private constructor() {
 
