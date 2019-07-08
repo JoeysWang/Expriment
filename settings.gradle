@@ -1,1 +1,1 @@
-include ':app', ':analytics', ':kanno', ':codegen', ':rxmodelstore'
+include ':app', ':analytics', ':kanno', ':codegen', ':rxmodelstore', ':routerAnnotation', ':routerCompiler', ':routerruntime'
