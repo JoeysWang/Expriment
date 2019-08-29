@@ -54,6 +54,9 @@ class BuilderProcessor : AbstractProcessor() {
                 .forEach { element ->
                     activityClasses[element.enclosingElement]?.let {
                         it.fileds.add(Field(element as Symbol.VarSymbol))
+                        val symbol = element as Symbol.VarSymbol
+
+
                     }
                             ?: Logger.error(element, "属性 $element 所在的Activity未被 ${Builder::class.java.name} 标注")
 

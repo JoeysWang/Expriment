@@ -31,9 +31,11 @@ class InjectMethodBuilder(private val activityClass: ActivityClass) {
             val name = field.name
             val typeName = field.asJavaTypeName()
             if (field is OptionalField) {
-                injectBuilder.addStatement("\$T \$LValue=\$T.<\$T>get(extras,\$S,\$L)", typeName, name, BUNDLE_UTILS.java, typeName, name, field.defaultValue)
+                injectBuilder
+                        .addStatement("\$T \$LValue=\$T.<\$T>get(extras,\$S,\$L)", typeName, name, BUNDLE_UTILS.java, typeName, name, field.defaultValue)
             } else {
-                injectBuilder.addStatement("\$T \$LValue=\$T.<\$T>get(extras,\$S)", typeName, name, BUNDLE_UTILS.java, typeName, name)
+                injectBuilder
+                        .addStatement("\$T \$LValue=\$T.<\$T>get(extras,\$S)", typeName, name, BUNDLE_UTILS.java, typeName, name)
             }
 
             if (field.isPrivate) {
