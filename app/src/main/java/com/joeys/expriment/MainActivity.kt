@@ -27,6 +27,7 @@ import com.joeys.router.annotation.Builder
 import com.joeys.router.annotation.Required
 import androidx.lifecycle.ViewModelProviders
 import com.alibaba.fastjson.JSON
+import com.bun.miitmdid.core.MdidSdkHelper
 import com.joeys.expriment.utils.log
 import com.joeys.router.annotation.Optional
 import com.tbruyelle.rxpermissions2.RxPermissions
@@ -96,17 +97,22 @@ class MainActivity : AppCompatActivity() {
         mWebview = findViewById<WebView>(R.id.webview)
         mNavView = findViewById<BottomNavigationView>(R.id.nav_view)
         mContainer = findViewById<ConstraintLayout>(R.id.container)
-        val d = RxPermissions(this)
-                .request(Manifest.permission.PACKAGE_USAGE_STATS)
-                .subscribe { getAppUsage() }
-//
-//
-//        seWebSettings(mWebview)
-//        mWebview.loadUrl("https://map.baidu.com/")
 
-        deviceTest()
+
+
+        MiitHelper {
+            "MiitHelper $it".log()
+        }.getDeviceIds(this)
+//        val result = CallFromReflect(this)
+//        "CallFromReflect $result".log()
     }
 
+    private fun CallFromReflect(cxt: Context): Int {
+        return MdidSdkHelper.InitSdk(cxt, true) { b, idSupplier ->
+            "idSupplier.udid  ${idSupplier.udid}".log()
+
+        }
+    }
 
     fun deviceTest() {
 
