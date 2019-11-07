@@ -3,4 +3,94 @@
     <color name="colorPrimary">#03A9F4</color>
     <color name="colorPrimaryDark">#0288D1</color>
     <color name="colorAccent">#448AFF</color>
+
+
+    <color name="located_me_color">#1B5E20</color>
+    <color name="select_manually_color">#7CC633</color>
+    <color name="common_line_color">#F1F1F1</color>
+    <color name="common_class_color">#F3F3F5</color>
+    <!--
+    <color name="colorPrimary">@color/green_primary</color>
+    <color name="colorPrimaryDark">@color/green_dark</color>
+    <color name="colorAccent">@color/green_tertiary</color>-->
+
+
+    <color name="colorTextPrimary">#353A3F</color>
+    <color name="colorTextLight">#4A5056</color>
+    <color name="colorTextGrey">#878E95</color>
+
+    <color name="colorTextBlue">#339AF0</color>
+    <color name="colorTextBlue66">#66339AF0</color>
+
+
+    <color name="colorBackgroundDefalut">#F1F3F5</color>
+
+
+    <color name="blue_light">#E0E4F0</color>
+    <color name="white">#FFFFFF</color>
+    <color name="white_72">#b8FFFFFF</color>
+    <color name="white_54">#a8FFFFFF</color>
+    <color name="white_30">#4DFFFFFF</color>
+    <!--Default background color-->
+    <color name="grey_light">#FBFBFB</color>
+    <color name="grey_quaternary">#EEEEEE</color>
+    <color name="grey_tertiary">#DDDDDD</color>
+    <color name="grey_secondary">#BDBDBD</color>
+    <color name="grey">#999999</color>
+    <color name="grey_dark">#666666</color>
+    <color name="grey_placeholder">#F5F5F5</color>
+    <color name="grey_background">#F5F5F5</color>
+    <color name="gray_chateau">#A3A3A3</color>
+    <color name="grey_88">#888888</color>
+    <color name="link_color">#ffaa00</color>
+    <color name="grey_forum_background">#F0F0F0</color>
+    <color name="grey_bb">#bbbbbb</color>
+    <color name="bg_btn_grey">#F1F1F1</color>
+
+    <color name="black">#101010</color>
+    <color name="black_40">#66000000</color>
+    <color name="black_80">#cc000000</color>
+    <color name="black_50">#88000000</color>
+    <color name="black_20">#33000000</color>
+    <color name="black_light">#414042</color>
+
+    <color name="green_dark">#114411</color>
+    <color name="green_primary">#1B5E20</color>
+    <color name="green_secondary">#408800</color>
+    <color name="green_tertiary">#7CC633</color>
+    <color name="green_light">#CCDDCC</color>
+    <color name="green_correct">#55BB10</color>
+    <color name="green_about_us">#357A3A</color>
+    <color name="green_highlight">#167CC633</color>
+    <color name="green_game">#5CC414</color>
+    <color name="green_support">#23C325</color>
+    <color name="green_follow">#45B55C</color>
+
+    <color name="red_error">#F06655</color>
+    <color name="red_like">#F06655</color>
+    <color name="red_exit">#FE3B3B</color>
+    <color name="blue_primary">#4499DD</color>
+
+    <color name="orange_light">#FFF5E8</color>
+
+    <color name="calendar_bg_color">#00FFFFFF</color>
+    <color name="holiday_text_color">#9082BD</color>
+    <color name="select_circle_color">@color/white</color>
+    <color name="select_word_color">#FFECA9</color>
+    <color name="black_transparent_alpha_24">#3d000000</color>
+
+
+    <color name="blue_medium">#3066FF</color>
+
+    <color name="status_bar">@color/grey</color>
+    <color name="bg_qibla_page">#123615</color>
+    <color name="transparent">#00000000</color>
+
+    <color name="line">#EDEDED</color>
+
+    <color name="red_hot_lable">#FA5252</color>
+    <color name="red_notify">#EC3B13</color>
+    <color name="gray_light_f8f9fa">#F8F9FA</color>
+
+
 </resources>
