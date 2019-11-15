@@ -1,4 +1,4 @@
-package com.joeys.expriment.view
+package com.joeys.expriment.bottomSheet
 
 import android.widget.LinearLayout
 import androidx.coordinatorlayout.widget.CoordinatorLayout

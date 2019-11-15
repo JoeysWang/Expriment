@@ -1,22 +1,14 @@
-package com.joeys.expriment.view
+package com.joeys.expriment.bottomSheet
 
 import android.content.Context
-import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
 import android.view.*
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
-import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatDialog
-import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.widget.addTextChangedListener
-import com.bun.miitmdid.core.JLibrary.context
-import com.bun.miitmdid.utils.e
-import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.joeys.expriment.R
 import com.joeys.expriment.utils.dp
 import com.joeys.expriment.utils.log

@@ -67,9 +67,6 @@ dependencies {
 
     //Navigation
 
-    implementation "androidx.navigation:navigation-fragment:$nav_version"
-    // For Kotlin use navigation-fragment-ktx
-    implementation "androidx.navigation:navigation-ui:$nav_version"
 
 
     implementation 'com.jakewharton.rxbinding3:rxbinding:3.0.0'
@@ -83,6 +80,7 @@ dependencies {
 
 // https://mvnrepository.com/artifact/com.alibaba/fastjson
     implementation group: 'com.alibaba', name: 'fastjson', version: '1.2.59'
+    implementation 'com.drakeet.multitype:multitype:4.0.0'
 
 
 //    implementation project(':analytics')

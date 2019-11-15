@@ -8,9 +8,9 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="6dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginRight="16dp"
         app:cardElevation="0dp"
         android:layout_marginBottom="6dp"
         app:cardBackgroundColor="@color/colorBackgroundDefalut"
@@ -19,11 +19,11 @@
         <TextView
             android:id="@+id/edit_content"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
+            android:layout_height="48dp"
             android:background="@null"
             android:layout_gravity="bottom"
             android:gravity="center"
-            android:text="comment"
+            android:text="cancel"
             android:textSize="18sp" />
     </androidx.cardview.widget.CardView>
 
