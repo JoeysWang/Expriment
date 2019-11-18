@@ -23,6 +23,7 @@ android {
             abiFilters 'armeabi-v7a', 'x86', 'arm64-v8a', 'x86_64', 'armeabi'
         }
     }
+    kotlinOptions { jvmTarget = 1.8 }
     buildTypes {
         release {
             minifyEnabled false
@@ -30,8 +31,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_7
-        targetCompatibility JavaVersion.VERSION_1_7
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
     packagingOptions {
@@ -46,7 +47,7 @@ android {
 //android.defaultConfig.javaCompileOptions.annotationProcessorOptions.includeCompileClasspath = true
 
 
-def lifecycle_version = "2.2.0-alpha01"
+def lifecycle_version = "2.2.0-rc02"
 def nav_version = "2.1.0-alpha03"
 
 dependencies {
@@ -56,9 +57,12 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.1.0'
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta3'
-    implementation 'androidx.fragment:fragment:1.2.0-rc01'
+    implementation 'androidx.fragment:fragment:1.2.0-rc02'
     implementation 'com.google.android.material:material:1.2.0-alpha01'
     implementation files('libs/miit_mdid_1.0.8.aar')
+    implementation 'androidx.core:core-ktx:1.2.0-beta02'
+    implementation "org.jetbrains.anko:anko-common:0.10.4"
+    implementation 'com.blankj:utilcode:1.23.7'
 
     // ViewModel and LiveData
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
@@ -66,7 +70,6 @@ dependencies {
     kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
 
     //Navigation
-
 
 
     implementation 'com.jakewharton.rxbinding3:rxbinding:3.0.0'

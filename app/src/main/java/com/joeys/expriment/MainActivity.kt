@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
 
         button = findViewById<Button>(R.id.btn_to_emotion)
         button.setOnClickListener {
-            Btdf().show(supportFragmentManager, "bf")
+            startActivity(Intent(this, MotionLayoutActivity::class.java))
         }
     }
 

@@ -6,12 +6,11 @@ import android.view.View
 import android.widget.FrameLayout
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import co.muslimummah.android.R
-import co.muslimummah.android.module.search.itemViews.LoadMoreState
-import co.muslimummah.android.module.search.itemViews.LoadMoreBinder
 import com.drakeet.multitype.MultiTypeAdapter
+import com.joeys.expriment.R
+import com.joeys.expriment.ptrRecyclerView.LoadMoreBinder
+import com.joeys.expriment.ptrRecyclerView.LoadMoreState
 import org.jetbrains.anko.collections.forEachWithIndex
-import timber.log.Timber
 
 class PtrRecyclerView : FrameLayout {
 
@@ -174,8 +173,6 @@ class PtrRecyclerView : FrameLayout {
         swipeRefreshLayout = view.findViewById(R.id.swipe_layout)
         recyclerView = view.findViewById(R.id.recyclerView)
         recyclerView.loadmoreListener {
-            if (onLoadMoreListener == null)
-                Timber.tag(this.javaClass.simpleName).e("未设置 { PtrRecyclerView.onLoadMoreListener } ")
             onLoadMoreListener?.invoke()
         }
         addView(view)

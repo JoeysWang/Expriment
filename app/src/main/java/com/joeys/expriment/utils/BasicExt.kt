@@ -4,6 +4,6 @@ import android.content.res.Resources
 import android.util.Log
 
 fun String.log() {
-    Log.d("joeys", this)
+    Log.d("joeys-debug", this)
 }
 val Number.dp: Int get() = ( toFloat() * Resources.getSystem().displayMetrics.density).toInt()
