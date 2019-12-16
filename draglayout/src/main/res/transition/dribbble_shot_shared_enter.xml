@@ -30,7 +30,7 @@
     </changeBounds>
 
     <transition
-        class="io.plaidapp.core.ui.transitions.ShotSharedEnter"
+        class="com.joeys.draglayout.transitions.ShotSharedEnter"
         android:interpolator="@android:interpolator/fast_out_slow_in">
         <targets>
             <target android:targetId="@id/shot" />
@@ -38,7 +38,7 @@
     </transition>
 
     <transition
-        class="io.plaidapp.core.ui.transitions.DarkenImage"
+        class="com.joeys.draglayout.transitions.DarkenImage"
         app:initialRgbScale="0.85"
         app:finalRgbScale="1.0"
         android:interpolator="@android:interpolator/linear">

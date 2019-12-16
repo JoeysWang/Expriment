@@ -2,6 +2,7 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".BehaviorActivity">
@@ -9,63 +10,50 @@
     <com.joeys.expriment.DraggableHeaderView
         android:id="@+id/top"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        app:layout_behavior=".DraggableHeaderBehavior"
-        android:background="@color/red_error"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_behavior=".DraggableHeaderBehavior">
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:id="@+id/iv"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/icberg" />
 
     </com.joeys.expriment.DraggableHeaderView>
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/ic_launcher" />
+<Button
+    android:layout_width="wrap_content"
+    android:id="@+id/dismiss"
+    android:text="dismiss"
+    android:layout_height="wrap_content"/>
 
     <com.joeys.expriment.DraggableBottomView
+        android:id="@+id/bottom"
         android:layout_width="match_parent"
-        app:layout_behavior=".DraggableBottomBehavior"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:layout_behavior=".DraggableBottomBehavior">
 
-        <LinearLayout
-            android:id="@+id/bottom"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-      >
+            android:layout_gravity="center_horizontal"
+            android:background="@color/green_about_us"
+            android:padding="10dp"
+            android:text="drag me" />
 
-            <Button
-                android:id="@+id/button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="drag me" />
+        <FrameLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="50dp">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="@string/coor_text" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="@string/coor_text" />
+        </FrameLayout>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="@string/coor_text" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="@string/coor_text" />
-
-        </LinearLayout>
     </com.joeys.expriment.DraggableBottomView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

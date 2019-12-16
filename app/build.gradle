@@ -84,10 +84,12 @@ dependencies {
 // https://mvnrepository.com/artifact/com.alibaba/fastjson
     implementation group: 'com.alibaba', name: 'fastjson', version: '1.2.59'
     implementation 'com.drakeet.multitype:multitype:4.0.0'
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
 
 
 //    implementation project(':analytics')
     implementation project(':rxmodelstore')
+    implementation project(':draglayout')
     implementation project(':routerAnnotation')
     implementation project(':routerruntime')
     kapt project(':routerCompiler')

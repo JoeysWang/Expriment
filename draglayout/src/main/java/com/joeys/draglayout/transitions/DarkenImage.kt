@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.plaidapp.core.ui.transitions
+package com.joeys.draglayout.transitions
 
 import android.animation.Animator
 import android.animation.ValueAnimator

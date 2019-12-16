@@ -28,10 +28,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 
-
 import java.util.ArrayList;
 import java.util.List;
-
 
 
 /**
@@ -157,13 +155,13 @@ public class ElasticDragDismissFrameLayout extends FrameLayout {
                 setScaleY(1f);
             } else {
                 animate()
-                    .translationY(0f)
-                    .scaleX(1f)
-                    .scaleY(1f)
-                    .setDuration(200L)
-                    .setInterpolator(AnimUtils.getFastOutSlowInInterpolator(getContext()))
-                    .setListener(null)
-                    .start();
+                        .translationY(0f)
+                        .scaleX(1f)
+                        .scaleY(1f)
+                        .setDuration(200L)
+                        .setInterpolator(AnimUtils.getFastOutSlowInInterpolator(getContext()))
+                        .setListener(null)
+                        .start();
             }
             totalDrag = 0;
             draggingDown = draggingUp = false;
