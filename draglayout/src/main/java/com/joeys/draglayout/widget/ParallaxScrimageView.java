@@ -26,6 +26,7 @@ import android.graphics.Rect;
 import androidx.annotation.ColorInt;
 import androidx.annotation.FloatRange;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.Property;
 
 import com.joeys.draglayout.AnimUtils;
@@ -38,7 +39,7 @@ import com.joeys.draglayout.R;
  * <p>
  * It also has a custom pinned state, for use via state lists.
  */
-public class ParallaxScrimageView extends FourThreeImageView {
+public class ParallaxScrimageView extends ForegroundImageView {
 
     private static final int[] STATE_PINNED = { R.attr.state_pinned };
     private final Paint scrimPaint;
@@ -97,6 +98,7 @@ public class ParallaxScrimageView extends FourThreeImageView {
     public void setOffset(int offset) {
         offset = Math.max(minOffset, offset);
         if (offset != getTranslationY()) {
+            Log.d("joeys-debug", "setOffset: "+offset);
             setTranslationY(offset);
             imageOffset = (int) (offset * parallaxFactor);
             clipBounds.set(0, -offset, getWidth(), getHeight());

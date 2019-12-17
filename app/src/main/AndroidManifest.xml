@@ -21,6 +21,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
+        tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:appComponentFactory">
         <activity android:name=".transition.TransitionActivity">
             <intent-filter>
@@ -36,8 +37,10 @@
         <activity android:name=".MotionLayoutActivity" />
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name"></activity>
-        <activity android:name=".transition.TransitionDestActivity" />
+            android:label="@string/app_name" />
+        <activity
+            android:name=".transition.TransitionDestActivity"
+            android:theme="@style/AppTheme.Translucent.TransitionAnim" />
     </application>
 
 </manifest>

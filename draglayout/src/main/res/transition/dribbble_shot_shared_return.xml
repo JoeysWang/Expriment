@@ -34,7 +34,7 @@
     </transitionSet>
 
     <transition
-        class="com.joeys.draglayout.transitions.DeparallaxingChangeBounds"
+        class="android.transition.ChangeBounds"
         android:interpolator="@android:interpolator/fast_out_slow_in">
         <targets>
             <target android:targetId="@id/shot" />

@@ -30,50 +30,51 @@ class TransitionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_transition)
 
+        setExitSharedElementCallback(createSharedElementReenterCallback(this))
 
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = Adapte(this)
+        recyclerView.adapter = Adapte(this) { url, view ->
 
-        setExitSharedElementCallback(object:SharedElementCallback(){
-            override fun onRejectSharedElements(rejectedSharedElements: MutableList<View>?) {
-                "A EXIT onRejectSharedElements".log()
-                super.onRejectSharedElements(rejectedSharedElements)
-            }
+            TransitionDestActivity.start(this, view, url)
+        }
 
-            override fun onSharedElementEnd(sharedElementNames: MutableList<String>?, sharedElements: MutableList<View>?, sharedElementSnapshots: MutableList<View>?) {
-                "A EXIT onSharedElementEnd".log()
-                super.onSharedElementEnd(sharedElementNames, sharedElements, sharedElementSnapshots)
-            }
-
-            override fun onCaptureSharedElementSnapshot(sharedElement: View?, viewToGlobalMatrix: Matrix?, screenBounds: RectF?): Parcelable {
-                "A EXIT onCaptureSharedElementSnapshot".log()
-                return super.onCaptureSharedElementSnapshot(sharedElement, viewToGlobalMatrix, screenBounds)
-            }
-
-            override fun onSharedElementsArrived(sharedElementNames: MutableList<String>?, sharedElements: MutableList<View>?, listener: OnSharedElementsReadyListener?) {
-                "A EXIT onSharedElementsArrived".log()
-                super.onSharedElementsArrived(sharedElementNames, sharedElements, listener)
-            }
-
-            override fun onMapSharedElements(names: MutableList<String>?, sharedElements: MutableMap<String, View>?) {
-                "A EXIT onMapSharedElements".log()
-                super.onMapSharedElements(names, sharedElements)
-            }
-
-            override fun onCreateSnapshotView(context: Context?, snapshot: Parcelable?): View {
-                "A EXIT onCreateSnapshotView".log()
-                return super.onCreateSnapshotView(context, snapshot)
-            }
-
-            override fun onSharedElementStart(sharedElementNames: MutableList<String>?, sharedElements: MutableList<View>?, sharedElementSnapshots: MutableList<View>?) {
-                "A EXIT onSharedElementStart".log()
-                super.onSharedElementStart(sharedElementNames, sharedElements, sharedElementSnapshots)
-            }
-        })
 
     }
 
-    class Adapte(val context: Activity) : RecyclerView.Adapter<VH>() {
+    fun createSharedElementReenterCallback(
+            context: Context
+    ): android.app.SharedElementCallback {
+        val shotTransitionName = context.getString(R.string.transition_shot)
+        val shotBackgroundTransitionName =
+                context.getString(R.string.transition_shot_background)
+        return object : android.app.SharedElementCallback() {
+
+            /**
+             * We're performing a slightly unusual shared element transition i.e. from one view
+             * (image in the grid) to two views (the image & also the background of the details
+             * view, to produce the expand effect). After changing orientation, the transition
+             * system seems unable to map both shared elements (only seems to map the shot, not
+             * the background) so in this situation we manually map the background to the
+             * same view.
+             */
+            override fun onMapSharedElements(
+                    names: List<String>,
+                    sharedElements: MutableMap<String, View>
+            ) {
+                if (sharedElements.size != names.size) {
+                    // couldn't map all shared elements
+                    sharedElements[shotTransitionName]?.let {
+                        // has shot so add shot background, mapped to same view
+                        sharedElements[shotBackgroundTransitionName] = it
+                    }
+                }
+            }
+        }
+    }
+
+    class Adapte(val context: Activity,
+                 val click: (String, View) -> Unit
+    ) : RecyclerView.Adapter<VH>() {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
             val vh = VH(LayoutInflater.from(context).inflate(R.layout.img_item, parent, false))
@@ -82,21 +83,32 @@ class TransitionActivity : AppCompatActivity() {
         }
 
         override fun getItemCount(): Int {
-            return 10
+            return images.size
         }
 
         override fun onBindViewHolder(holder: VH, position: Int) {
             Glide.with(holder.mIv)
-                    .load(TransitionDestActivity.image)
+                    .load(images[position])
                     .into(holder.mIv)
-            ViewCompat.setTransitionName(holder.mIv, "")
 
             holder.mIv.setOnClickListener {
-                ViewCompat.setTransitionName(holder.mIv, "transition_view")
-                TransitionDestActivity.start(context, holder.mIv)
+                click.invoke(images[position], holder.mIv)
             }
         }
 
+    }
+
+    companion object {
+        val images = listOf("https://video.zhongyi.io/image/default/06932029A8F144FDA282407641CBB817-6-2.jpg?osize_1080x1080",
+                "https://video.zhongyi.io/image/default/E63845F5CD6B41AE8917DFF7E57C526B-6-2.jpg?osize_1080x1080",
+                "https://video.zhongyi.io/image/default/14907AF50B574EC59A4387CE05C26DA1-6-2.jpg?osize_1080x1080",
+                "https://video.zhongyi.io/image/default/D69BBDAEA5274858AFCFC891B5E5B6B1-6-2.jpg?osize_1080x810",
+                "https://video.zhongyi.io/image/default/06932029A8F144FDA282407641CBB817-6-2.jpg?osize_1080x1080",
+                "https://video.zhongyi.io/image/default/E63845F5CD6B41AE8917DFF7E57C526B-6-2.jpg?osize_1080x1080",
+                "https://video.zhongyi.io/image/default/14907AF50B574EC59A4387CE05C26DA1-6-2.jpg?osize_1080x1080",
+                "https://video.zhongyi.io/image/default/D69BBDAEA5274858AFCFC891B5E5B6B1-6-2.jpg?osize_1080x810"
+
+        )
     }
 
     class VH(view: View) : RecyclerView.ViewHolder(view) {

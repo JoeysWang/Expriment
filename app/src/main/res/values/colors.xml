@@ -14,6 +14,10 @@
     <color name="colorPrimaryDark">@color/green_dark</color>
     <color name="colorAccent">@color/green_tertiary</color>-->
 
+    <color name="color_background">#e0e0e0</color>
+    <color name="background_super_dark">#ff292929</color>
+    <color name="hint_disabled_dark">#43000000</color> <!-- 26% black -->
+    <color name="background_light">#fafafa</color> <!-- grey 50 -->
 
     <color name="colorTextPrimary">#353A3F</color>
     <color name="colorTextLight">#4A5056</color>
@@ -24,6 +28,7 @@
 
 
     <color name="colorBackgroundDefalut">#F1F3F5</color>
+    <color name="mid_grey">#40808080</color>
 
 
     <color name="blue_light">#E0E4F0</color>

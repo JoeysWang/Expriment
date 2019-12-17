@@ -22,11 +22,16 @@ package com.joeys.draglayout;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.util.AttributeSet;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -93,6 +98,41 @@ public class ElasticDragDismissFrameLayout extends FrameLayout {
         a.recycle();
     }
 
+    final static String TAG = "joeys-debug";
+
+//    @Override
+//    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+//        super.onLayout(changed, left, top, right, bottom);
+//        final int count = getChildCount();
+//        Log.d(TAG, "onLayout===========> ");
+//        for (int i = 0; i < count; i++) {
+//            final View child = getChildAt(i);
+//            if (child.getVisibility() != GONE) {
+//                final LayoutParams lp = (LayoutParams) child.getLayoutParams();
+//
+//                final int width = child.getMeasuredWidth();
+//                final int height = child.getMeasuredHeight();
+//                if (child instanceof ImageView) {
+//                    imageBottom = child.getBottom();
+//                    invalidate();
+//                    Log.d(TAG, "imageView  top:" + child.getTop() + " bottom:" + child.getBottom());
+//
+//                }
+//
+//                Log.d(TAG, "onLayout: " + child.getClass().getSimpleName() + " width:" + width + "height:" + height);
+//
+//
+//            }
+//        }
+//        Log.d(TAG, "onLayout=========== end ");
+//
+//    }
+
+    int imageBottom = 0;
+    Paint paint = new Paint();
+
+
+
     public static abstract class ElasticDragDismissCallback {
 
         /**
@@ -107,12 +147,14 @@ public class ElasticDragDismissFrameLayout extends FrameLayout {
          * @param rawOffsetPixels     The raw distance the user has dragged
          */
         void onDrag(float elasticOffset, float elasticOffsetPixels,
-                    float rawOffset, float rawOffsetPixels) { }
+                    float rawOffset, float rawOffsetPixels) {
+        }
 
         /**
          * Called when dragging is released and has exceeded the threshold dismiss distance.
          */
-        void onDragDismissed() { }
+        void onDragDismissed() {
+        }
 
     }
 
@@ -136,7 +178,8 @@ public class ElasticDragDismissFrameLayout extends FrameLayout {
         dragScale(dyUnconsumed);
     }
 
-    @Override public boolean onInterceptTouchEvent(MotionEvent ev) {
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
         mLastActionEvent = ev.getAction();
         return super.onInterceptTouchEvent(ev);
     }
