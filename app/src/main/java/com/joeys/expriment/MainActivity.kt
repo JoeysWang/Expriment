@@ -12,6 +12,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.joeys.expriment.bottomSheet.BottomDialogFragment
 import com.joeys.expriment.bottomSheet.EditDialog
+import com.joeys.ipc.Callback
+import com.joeys.ipc.IpcManager
+import com.joeys.ipc.IpcRequest
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,6 +32,19 @@ class MainActivity : AppCompatActivity() {
         button.setOnClickListener {
             startActivity(Intent(this, MotionLayoutActivity::class.java))
         }
+        btn_ipc.setOnClickListener {
+            ipc()
+        }
+    }
+
+    private fun ipc() {
+
+        val request =IpcRequest("hello ")
+        IpcManager.instance.executeAsync(request) {
+
+        }
+
+
     }
 
 
@@ -39,8 +56,8 @@ class Btdf : BottomDialogFragment() {
 
         val mRv = view.findViewById<RecyclerView>(R.id.rv)
 
-        mRv.layoutManager = LinearLayoutManager(context!!)
-        mRv.adapter = MyAdapter(context!!)
+        mRv.layoutManager = LinearLayoutManager(requireContext())
+        mRv.adapter = MyAdapter(requireContext())
         return view
     }
 

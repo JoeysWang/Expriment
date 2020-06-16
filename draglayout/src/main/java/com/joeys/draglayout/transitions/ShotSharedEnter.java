@@ -37,13 +37,23 @@ public class ShotSharedEnter extends ChangeBounds {
     }
 
     @Override
-    public void captureEndValues(TransitionValues transitionValues) {
-        super.captureEndValues(transitionValues);
-        int width = ((View) transitionValues.values.get(PROPNAME_PARENT)).getWidth();
-        Rect bounds = (Rect) transitionValues.values.get(PROPNAME_BOUNDS);
-        bounds.right = width;
-        bounds.bottom = width * 3 / 4;
-        transitionValues.values.put(PROPNAME_BOUNDS, bounds);
+    public void captureEndValues(TransitionValues values) {
+        super.captureEndValues(values);
+
+        View view = values.view;
+
+        if (view.isLaidOut() || view.getWidth() != 0 || view.getHeight() != 0) {
+            values.values.put(PROPNAME_BOUNDS, new Rect(view.getLeft(), view.getTop(),
+                    view.getRight(), view.getBottom()));
+
+        }
+
+//        int width = ((View) values.values.get(PROPNAME_PARENT)).getWidth();
+//        int height = ((View) values.values.get(PROPNAME_PARENT)).getHeight();
+//        Rect bounds = (Rect) values.values.get(PROPNAME_BOUNDS);
+//        bounds.right = width;
+//        bounds.bottom =height;
+//        values.values.put(PROPNAME_BOUNDS, bounds);
     }
 
 }

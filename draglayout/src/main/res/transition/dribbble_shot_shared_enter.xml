@@ -29,13 +29,13 @@
         </targets>
     </changeBounds>
 
-<!--    <transition-->
-<!--        class="com.joeys.draglayout.transitions.ShotSharedEnter"-->
-<!--        android:interpolator="@android:interpolator/fast_out_slow_in">-->
-<!--        <targets>-->
-<!--            <target android:targetId="@id/shot" />-->
-<!--        </targets>-->
-<!--    </transition>-->
+    <transition
+        class="com.joeys.draglayout.transitions.ShotSharedEnter"
+        android:interpolator="@android:interpolator/fast_out_slow_in">
+        <targets>
+            <target android:targetId="@id/shot" />
+        </targets>
+    </transition>
 
     <transition
         class="com.joeys.draglayout.transitions.DarkenImage"
