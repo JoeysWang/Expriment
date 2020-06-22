@@ -92,5 +92,6 @@ dependencies {
     implementation project(':draglayout')
     implementation project(':routerAnnotation')
     implementation project(':routerruntime')
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
     kapt project(':routerCompiler')
 }

@@ -1,4 +1,4 @@
-package co.muslimummah.android.widget.ptrRecyclerView
+package com.joeys.expriment.ptrRecyclerView
 
 import android.view.View
 import android.widget.TextView

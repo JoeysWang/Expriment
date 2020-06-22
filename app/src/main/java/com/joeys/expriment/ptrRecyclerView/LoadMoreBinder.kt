@@ -7,8 +7,6 @@ import android.widget.ProgressBar
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import co.muslimummah.android.widget.ptrRecyclerView.setGone
-import co.muslimummah.android.widget.ptrRecyclerView.setVisible
 import com.drakeet.multitype.ItemViewBinder
 import com.joeys.expriment.R
 

@@ -36,9 +36,7 @@ class StaggeredDistanceSlide : Visibility {
     @Keep
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
         var tmpSpread = 1
-        context.withStyledAttributes(attrs, R.styleable.StaggeredDistanceSlide) {
-            tmpSpread = getInteger(R.styleable.StaggeredDistanceSlide_spread, 1)
-        }
+
         spread = tmpSpread
     }
 

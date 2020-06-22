@@ -1,4 +1,4 @@
-package co.muslimummah.android.widget.ptrRecyclerView
+package com.joeys.expriment.ptrRecyclerView
 
 import android.content.Context
 import android.util.AttributeSet
@@ -8,8 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.drakeet.multitype.MultiTypeAdapter
 import com.joeys.expriment.R
-import com.joeys.expriment.ptrRecyclerView.LoadMoreBinder
-import com.joeys.expriment.ptrRecyclerView.LoadMoreState
 import org.jetbrains.anko.collections.forEachWithIndex
 
 class PtrRecyclerView : FrameLayout {
