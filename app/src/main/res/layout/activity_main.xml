@@ -20,7 +20,10 @@
         android:text="btn_to_emotion"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent" />
-
+<ImageView
+    android:layout_width="100dp"
+    android:id="@+id/iv"
+    android:layout_height="100dp"/>
 
 
 </LinearLayout>

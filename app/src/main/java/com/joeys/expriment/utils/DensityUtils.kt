@@ -45,6 +45,7 @@ object DensityUtils {
         val targetScaleDensity = targetDensity * (appScaleDensity / appDensity) //目标文字缩放密度
         val targetDensityDpi = (targetDensity * 160).toInt()
 
+        val dpi =appDm.density;
         //替换activity的
         val activityDm = activity.resources.displayMetrics
         Log.d("joeys", "origin density:${activityDm.density} densityDpi:${activityDm.densityDpi}")
