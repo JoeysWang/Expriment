@@ -1,15 +1,10 @@
-package com.joeys.expriment
+package com.joeys.expriment.bottomDialog
 
 import android.content.Context
 import android.util.AttributeSet
-import android.view.View
-import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.coordinatorlayout.widget.CoordinatorLayout
-import com.blankj.utilcode.util.ScreenUtils
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.joeys.expriment.utils.dp
-import com.joeys.expriment.utils.log
 
 class DraggableBottomView : FrameLayout, CoordinatorLayout.AttachedBehavior {
 

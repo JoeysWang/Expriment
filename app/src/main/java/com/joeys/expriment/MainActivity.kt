@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.joeys.expriment.activity.ScaleRecyclerActivity
 import com.joeys.expriment.bottomSheet.BottomDialogFragment
 import com.joeys.expriment.bottomSheet.EditDialog
 import com.joeys.expriment.utils.DensityUtils
@@ -35,6 +36,7 @@ class MainActivity : AppCompatActivity() {
         DensityUtils.setDensity(this)
         setContentView(R.layout.activity_main)
 
+        btn_to_scale.setOnClickListener { startActivity(Intent(this, ScaleRecyclerActivity::class.java)) }
         Glide.with(this)
                 .load(R.drawable.ic_arrow_back)
                 .into(iv)

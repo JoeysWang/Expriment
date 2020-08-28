@@ -7,12 +7,12 @@
     android:layout_height="match_parent"
     tools:context=".BehaviorActivity">
 
-    <com.joeys.expriment.DraggableHeaderView
+    <com.joeys.expriment.bottomDialog.DraggableHeaderView
         android:id="@+id/top"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_behavior=".DraggableHeaderBehavior">
+        app:layout_behavior=".bottomDialog.DraggableHeaderBehavior">
 
         <ImageView
             android:layout_width="match_parent"
@@ -23,18 +23,18 @@
             android:scaleType="centerCrop"
             android:src="@mipmap/icberg" />
 
-    </com.joeys.expriment.DraggableHeaderView>
+    </com.joeys.expriment.bottomDialog.DraggableHeaderView>
 <Button
     android:layout_width="wrap_content"
     android:id="@+id/dismiss"
     android:text="dismiss"
     android:layout_height="wrap_content"/>
 
-    <com.joeys.expriment.DraggableBottomView
+    <com.joeys.expriment.bottomDialog.DraggableBottomView
         android:id="@+id/bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_behavior=".DraggableBottomBehavior">
+        app:layout_behavior=".bottomDialog.DraggableBottomBehavior">
 
         <TextView
             android:id="@+id/button"
@@ -54,6 +54,6 @@
 
         </FrameLayout>
 
-    </com.joeys.expriment.DraggableBottomView>
+    </com.joeys.expriment.bottomDialog.DraggableBottomView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

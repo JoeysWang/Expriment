@@ -1,25 +1,14 @@
 package com.joeys.expriment
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.FrameLayout
-import android.widget.LinearLayout
 import androidx.coordinatorlayout.widget.CoordinatorLayout
-import com.google.android.material.appbar.AppBarLayout
-import com.joeys.expriment.utils.log
-import android.opengl.ETC1.getHeight
-import androidx.core.view.ViewCompat.setY
-import android.opengl.ETC1.getWidth
-import androidx.core.view.ViewCompat.setX
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-import android.view.GestureDetector.OnGestureListener
-import androidx.core.view.ViewCompat
 import kotlinx.android.synthetic.main.activity_quran_share.*
 import android.view.*
 import androidx.fragment.app.Fragment
 import com.blankj.utilcode.util.ScreenUtils
+import com.joeys.expriment.bottomDialog.DraggableBottomBehavior
+import com.joeys.expriment.bottomDialog.DraggableBottomView
 import com.joeys.expriment.utils.dp
 
 class BehaviorActivity : AppCompatActivity() {

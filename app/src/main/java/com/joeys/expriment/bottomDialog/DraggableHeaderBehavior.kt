@@ -1,11 +1,9 @@
-package com.joeys.expriment
+package com.joeys.expriment.bottomDialog
 
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import androidx.coordinatorlayout.widget.CoordinatorLayout
-import androidx.core.view.ViewCompat
-import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.joeys.expriment.utils.log
 
